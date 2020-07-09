@@ -1,10 +1,14 @@
 package ca.jrvs.apps.trading.service.impl;
 
+import ca.jrvs.apps.generated.trading.api.DashboardControllerApi;
+import ca.jrvs.apps.generated.trading.model.PortfolioResponse;
+import ca.jrvs.apps.generated.trading.model.TraderProfileResponse;
 import ca.jrvs.apps.trading.excptions.ResourceNotFoundException;
 import ca.jrvs.apps.trading.service.DashboardService;
 import ca.jrvs.apps.trading.web.resources.PortfolioWebResponse;
 import ca.jrvs.apps.trading.web.resources.TraderProfileWebResponse;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +16,8 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class DashboardServiceImpl implements DashboardService {
 
+    @Autowired
+    private DashboardControllerApi dashboardControllerApi;
 
     /**
      * Create and return a trader profile by trader ID
@@ -27,8 +33,15 @@ public class DashboardServiceImpl implements DashboardService {
      */
 
     public TraderProfileWebResponse getTraderProfile(Integer traderId) {
+        TraderProfileResponse traderProfileResponse = dashboardControllerApi.getTraderProfileByIdUsingGET(traderId);
+        return convertTraderProfileResponse(traderProfileResponse);
+    }
 
-        return null;
+    private TraderProfileWebResponse convertTraderProfileResponse(TraderProfileResponse model) {
+        return TraderProfileWebResponse.builder()
+                .trader(model.getTrader())
+                .account(model.getAccount())
+                .build();
     }
 
 
@@ -40,13 +53,19 @@ public class DashboardServiceImpl implements DashboardService {
      *
      * @param traderId
      * @return portfolioView
-     * @throws ResourceNotFoundException                   if ticker is not found from IEX
-     * @throws DataAccessException if unable to retrieve data
-     * @throws IllegalArgumentException                    for invalid input
+     * @throws ResourceNotFoundException if ticker is not found from IEX
+     * @throws DataAccessException       if unable to retrieve data
+     * @throws IllegalArgumentException  for invalid input
      */
     public PortfolioWebResponse getPortfolioByTraderId(Integer traderId) {
+        PortfolioResponse portfolioResponse = dashboardControllerApi.getPortfolioByIdUsingGET(traderId);
+        return covertPortFolioResponse(portfolioResponse);
+    }
 
-        return null;
+    private PortfolioWebResponse covertPortFolioResponse(PortfolioResponse model) {
+        return PortfolioWebResponse.builder()
+                .securityRows(model.getSecurityRows())
+                .build();
     }
 
 }
