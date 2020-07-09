@@ -1,5 +1,6 @@
 package ca.jrvs.apps.trading.web;
 
+import ca.jrvs.apps.generated.trading.model.TraderRequest;
 import ca.jrvs.apps.trading.service.FundTransferService;
 import ca.jrvs.apps.trading.service.RegisterService;
 import ca.jrvs.apps.trading.util.ResponseExceptionUtil;
@@ -53,7 +54,7 @@ public class TraderController {
     })
     public ResponseEntity<?> createTrader(
             @ApiParam(value = "Trader Request", format = "yyyy-MM-dd")
-            @RequestBody TraderWebRequest req) {
+            @RequestBody TraderRequest req) {
         try {
             TraderProfileWebResponse response = registerService.createTraderAndAccount(req);
             return ResponseEntity

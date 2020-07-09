@@ -1,10 +1,12 @@
 package ca.jrvs.apps.trading.service.impl;
 
 import ca.jrvs.apps.generated.trading.ApiClient;
+import ca.jrvs.apps.generated.trading.api.TraderControllerApi;
+import ca.jrvs.apps.generated.trading.model.TraderProfileResponse;
+import ca.jrvs.apps.generated.trading.model.TraderRequest;
 import ca.jrvs.apps.trading.excptions.ResourceNotFoundException;
 import ca.jrvs.apps.trading.service.RegisterService;
 import ca.jrvs.apps.trading.web.resources.TraderProfileWebResponse;
-import ca.jrvs.apps.trading.web.resources.TraderWebRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +16,7 @@ import org.springframework.stereotype.Service;
 public class RegisterServiceImpl implements RegisterService {
 
     @Autowired
-    private ApiClient apiClient;
+    private TraderControllerApi traderControllerApi;
 
     /**
      * Create a new trader and initialize a new account with 0 amount.
@@ -25,12 +27,20 @@ public class RegisterServiceImpl implements RegisterService {
      *
      * @param req trader info
      * @return traderAccountView
-     * @throws ResourceNotFoundException if ticker is not found from IEX
-     * @throws org.springframework.dao.DataAccessException        if unable to retrieve data
-     * @throws IllegalArgumentException                           for invalid input
+     * @throws ResourceNotFoundException                   if ticker is not found from IEX
+     * @throws org.springframework.dao.DataAccessException if unable to retrieve data
+     * @throws IllegalArgumentException                    for invalid input
      */
-    public TraderProfileWebResponse createTraderAndAccount(TraderWebRequest req) {
-return null;
+    public TraderProfileWebResponse createTraderAndAccount(TraderRequest req) {
+        TraderProfileResponse traderProfileResponse = traderControllerApi.createTraderAndAccountUsingPOST(req);
+        return convertTraderProfileResponse(traderProfileResponse);
+    }
+
+    private TraderProfileWebResponse convertTraderProfileResponse(TraderProfileResponse model) {
+        return TraderProfileWebResponse.builder()
+                .account(model.getAccount())
+                .trader(model.getTrader())
+                .build();
     }
 
     /**
@@ -41,11 +51,12 @@ return null;
      * - delete all securityOrders, account, trader (in this order)
      *
      * @param traderId
-     * @throws ResourceNotFoundException if ticker is not found from IEX
-     * @throws org.springframework.dao.DataAccessException        if unable to retrieve data
-     * @throws IllegalArgumentException                           for invalid input
+     * @throws ResourceNotFoundException                   if ticker is not found from IEX
+     * @throws org.springframework.dao.DataAccessException if unable to retrieve data
+     * @throws IllegalArgumentException                    for invalid input
      */
     public void deleteTraderById(Integer traderId) {
+        traderControllerApi.deleteTraderUsingDELETE(traderId);
 
     }
 }
