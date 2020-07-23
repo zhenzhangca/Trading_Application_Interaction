@@ -1,6 +1,6 @@
 package ca.jrvs.apps.trading.web;
 
-import ca.jrvs.apps.generated.trading.model.TraderRequest;
+import ca.jrvs.apps.trading.generated.shared.model.TraderRequest;
 import ca.jrvs.apps.trading.service.FundTransferService;
 import ca.jrvs.apps.trading.service.RegisterService;
 import ca.jrvs.apps.trading.util.ResponseExceptionUtil;

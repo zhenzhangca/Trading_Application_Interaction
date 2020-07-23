@@ -1,7 +1,7 @@
 package ca.jrvs.apps.trading.service.impl;
 
-import ca.jrvs.apps.generated.trading.model.Quote;
 import ca.jrvs.apps.trading.excptions.ResourceNotFoundException;
+import ca.jrvs.apps.trading.generated.shared.model.Quote;
 import ca.jrvs.apps.trading.service.QuoteService;
 import ca.jrvs.apps.trading.web.resources.IexQuoteWebResponse;
 import ca.jrvs.apps.trading.web.resources.QuoteWebResponse;

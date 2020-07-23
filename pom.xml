@@ -55,6 +55,10 @@
             <optional>true</optional>
         </dependency>
         <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+        </dependency>
+        <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql.version}</version>
@@ -138,9 +142,11 @@
                             <language>java</language>
                             <library>resttemplate</library>
                             <generateApiTests>false</generateApiTests>
-                            <modelPackage>ca.jrvs.apps.generated.trading.model</modelPackage>
-                            <apiPackage>ca.jrvs.apps.generated.trading.api</apiPackage>
-<!--                                                        <configOptions>-->
+                            <modelPackage>ca.jrvs.apps.trading.generated.shared.model</modelPackage>
+                            <apiPackage>ca.jrvs.apps.trading.generated.shared.api</apiPackage>
+<!--                            <invokerPackage>ca.jrvs.apps.trading</invokerPackage>-->
+
+                            <!--                                                        <configOptions>-->
 <!--                                                            <sourceFolder>src/gen/java/main</sourceFolder>-->
 <!--                                                        </configOptions>-->
                         </configuration>
@@ -157,8 +163,9 @@
                             <language>java</language>
                             <library>resttemplate</library>
                             <generateApiTests>false</generateApiTests>
-                            <modelPackage>ca.jrvs.apps.generated.trading.model</modelPackage>
-                            <apiPackage>ca.jrvs.apps.generated.trading.api</apiPackage>
+                            <modelPackage>ca.jrvs.apps.trading.generated.audit.model</modelPackage>
+                            <apiPackage>ca.jrvs.apps.trading.generated.audit.api</apiPackage>
+
 <!--                                                        <configOptions>-->
 <!--                                                            <sourceFolder>src/gen/java/main</sourceFolder>-->
 <!--                                                        </configOptions>-->

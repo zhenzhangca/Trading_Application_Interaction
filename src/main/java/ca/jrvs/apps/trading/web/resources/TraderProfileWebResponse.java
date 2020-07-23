@@ -1,7 +1,7 @@
 package ca.jrvs.apps.trading.web.resources;
 
-import ca.jrvs.apps.generated.trading.model.Account;
-import ca.jrvs.apps.generated.trading.model.Trader;
+import ca.jrvs.apps.trading.generated.shared.model.Account;
+import ca.jrvs.apps.trading.generated.shared.model.Trader;
 import lombok.*;
 
 @Getter

@@ -1,9 +1,9 @@
 package ca.jrvs.apps.trading.service.impl;
 
-import ca.jrvs.apps.generated.trading.api.TraderControllerApi;
-import ca.jrvs.apps.generated.trading.model.TraderProfileResponse;
-import ca.jrvs.apps.generated.trading.model.TraderRequest;
 import ca.jrvs.apps.trading.excptions.ResourceNotFoundException;
+import ca.jrvs.apps.trading.generated.shared.api.TraderControllerApi;
+import ca.jrvs.apps.trading.generated.shared.model.TraderProfileResponse;
+import ca.jrvs.apps.trading.generated.shared.model.TraderRequest;
 import ca.jrvs.apps.trading.service.RegisterService;
 import ca.jrvs.apps.trading.web.resources.TraderProfileWebResponse;
 import lombok.extern.slf4j.Slf4j;

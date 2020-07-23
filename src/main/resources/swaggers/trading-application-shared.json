@@ -136,7 +136,7 @@
         ],
         "responses":{
           "200":{
-            "description":"Request completes sucessfully.",
+            "description":"Request completes successfully.",
             "schema":{
               "type":"string"
             }

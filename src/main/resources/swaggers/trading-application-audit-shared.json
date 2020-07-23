@@ -19,7 +19,7 @@
     }
   ],
   "paths":{
-    "/api/v1/trading/auditlog/activity":{
+    "/api/v1/trading/auditLog/activity":{
       "get":{
         "tags":[
           "activity-controller"

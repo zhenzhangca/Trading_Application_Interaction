@@ -1,6 +1,6 @@
 package ca.jrvs.apps.trading.web;
 
-import ca.jrvs.apps.generated.trading.model.Quote;
+import ca.jrvs.apps.trading.generated.shared.model.Quote;
 import ca.jrvs.apps.trading.service.QuoteService;
 import ca.jrvs.apps.trading.util.ResponseExceptionUtil;
 import ca.jrvs.apps.trading.web.resources.IexQuoteWebResponse;

@@ -1,7 +1,7 @@
 package ca.jrvs.apps.trading.service.impl;
 
-import ca.jrvs.apps.generated.trading.api.ActivityControllerApi;
-import ca.jrvs.apps.generated.trading.model.ActivityResponse;
+import ca.jrvs.apps.trading.generated.audit.api.ActivityControllerApi;
+import ca.jrvs.apps.trading.generated.audit.model.ActivityResponse;
 import ca.jrvs.apps.trading.service.ActivityService;
 import ca.jrvs.apps.trading.web.resources.ActivityWebResponse;
 import lombok.extern.slf4j.Slf4j;

@@ -1,9 +1,9 @@
 package ca.jrvs.apps.trading.service.impl;
 
-import ca.jrvs.apps.generated.trading.api.DashboardControllerApi;
-import ca.jrvs.apps.generated.trading.model.PortfolioResponse;
-import ca.jrvs.apps.generated.trading.model.TraderProfileResponse;
 import ca.jrvs.apps.trading.excptions.ResourceNotFoundException;
+import ca.jrvs.apps.trading.generated.shared.api.DashboardControllerApi;
+import ca.jrvs.apps.trading.generated.shared.model.PortfolioResponse;
+import ca.jrvs.apps.trading.generated.shared.model.TraderProfileResponse;
 import ca.jrvs.apps.trading.service.DashboardService;
 import ca.jrvs.apps.trading.web.resources.PortfolioWebResponse;
 import ca.jrvs.apps.trading.web.resources.TraderProfileWebResponse;
