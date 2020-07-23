@@ -1,3 +1,3 @@
 # Trading_Application_Interaction
 
-## Integrated Trading_Application_Shared project with swagger code generation
+Integrated Trading_Application_Shared and Trading_Application_Audit_Shared projects with swagger code generation
