@@ -58,7 +58,7 @@
         ],
         "responses":{
           "200":{
-            "description":"Request completes sucessfully.",
+            "description":"Request completes successfully.",
             "schema":{
               "$ref":"#/definitions/PortfolioResponse"
             }
@@ -102,7 +102,7 @@
         ],
         "responses":{
           "200":{
-            "description":"Request completes sucessfully.",
+            "description":"Request completes successfully.",
             "schema":{
               "$ref":"#/definitions/TraderProfileResponse"
             }
@@ -208,7 +208,7 @@
         "deprecated":false
       }
     },
-    "/quote/":{
+    "/api/v1/trading/quote/":{
       "put":{
         "tags":[
           "quote-controller"
@@ -225,11 +225,11 @@
         "parameters":[
           {
             "in":"body",
-            "name":"quote",
-            "description":"Quote to be updated.",
+            "name":"req",
+            "description":"Quote request",
             "required":false,
             "schema":{
-              "$ref":"#/definitions/Quote"
+              "$ref":"#/definitions/QuoteRequest"
             }
           }
         ],
@@ -259,7 +259,7 @@
         "deprecated":false
       }
     },
-    "/quote/dailyList":{
+    "/api/v1/trading/quote/dailyList":{
       "get":{
         "tags":[
           "quote-controller"
@@ -272,7 +272,7 @@
         ],
         "responses":{
           "200":{
-            "description":"Request completes sucessfully.",
+            "description":"Request completes successfully.",
             "schema":{
               "type":"array",
               "items":{
@@ -296,7 +296,7 @@
         "deprecated":false
       }
     },
-    "/quote/iex/ticker/{ticker}":{
+    "/api/v1/trading/quote/iex/ticker/{ticker}":{
       "get":{
         "tags":[
           "quote-controller"
@@ -318,7 +318,7 @@
         ],
         "responses":{
           "200":{
-            "description":"Request completes sucessfully.",
+            "description":"Request completes successfully.",
             "schema":{
               "$ref":"#/definitions/IexQuoteResponse"
             }
@@ -339,7 +339,7 @@
         "deprecated":false
       }
     },
-    "/quote/iexMarketData":{
+    "/api/v1/trading/quote/iexMarketData":{
       "put":{
         "tags":[
           "quote-controller"
@@ -382,7 +382,7 @@
         "deprecated":false
       }
     },
-    "/quote/tickerId/{tickerId}":{
+    "/api/v1/trading/quote/tickerId/{tickerId}":{
       "post":{
         "tags":[
           "quote-controller"
@@ -394,18 +394,21 @@
           "application/json"
         ],
         "produces":[
-          "*/*"
+          "application/json;charset=UTF-8"
         ],
         "parameters":[
           {
             "name":"tickerId",
             "in":"path",
-            "description":"tickerId",
-            "required":true,
+            "description":"Ticker Id",
+            "required":false,
             "type":"string"
           }
         ],
         "responses":{
+          "200":{
+            "description":"Request completes successfully."
+          },
           "201":{
             "description":"Created"
           },
@@ -416,13 +419,16 @@
             "description":"Forbidden"
           },
           "404":{
-            "description":"Not Found"
+            "description":"Not found."
+          },
+          "500":{
+            "description":"Internal Server Error."
           }
         },
         "deprecated":false
       }
     },
-    "/trader/":{
+    "/api/v1/trading/trader/":{
       "post":{
         "tags":[
           "trader-controller"
@@ -473,7 +479,7 @@
         "deprecated":false
       }
     },
-    "/trader/deposit/traderId/{traderId}/amount/{amount}":{
+    "/api/v1/trading/trader/deposit/traderId/{traderId}/amount/{amount}":{
       "put":{
         "tags":[
           "trader-controller"
@@ -534,7 +540,7 @@
         "deprecated":false
       }
     },
-    "/trader/traderId/{traderId}":{
+    "/api/v1/trading/trader/traderId/{traderId}":{
       "delete":{
         "tags":[
           "trader-controller"
@@ -581,7 +587,7 @@
         "deprecated":false
       }
     },
-    "/trader/withdraw/traderId/{traderId}/amount/{amount}":{
+    "/api/v1/trading/trader/withdraw/traderId/{traderId}/amount/{amount}":{
       "put":{
         "tags":[
           "trader-controller"
@@ -883,6 +889,35 @@
         }
       },
       "title":"Quote"
+    },
+    "QuoteRequest":{
+      "type":"object",
+      "properties":{
+        "askPrice":{
+          "type":"number",
+          "format":"double"
+        },
+        "askSize":{
+          "type":"integer",
+          "format":"int32"
+        },
+        "bidPrice":{
+          "type":"number",
+          "format":"double"
+        },
+        "bidSize":{
+          "type":"integer",
+          "format":"int32"
+        },
+        "lastPrice":{
+          "type":"number",
+          "format":"double"
+        },
+        "ticker":{
+          "type":"string"
+        }
+      },
+      "title":"QuoteRequest"
     },
     "QuoteResponse":{
       "type":"object",

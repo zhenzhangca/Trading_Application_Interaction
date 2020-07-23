@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.Collections;
 import java.util.List;
 
-@Service
+@Service("QuoteServiceImpl")
 @Slf4j
 public class QuoteServiceImpl implements QuoteService {
 

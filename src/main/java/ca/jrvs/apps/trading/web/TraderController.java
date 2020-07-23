@@ -6,7 +6,6 @@ import ca.jrvs.apps.trading.service.RegisterService;
 import ca.jrvs.apps.trading.util.ResponseExceptionUtil;
 import ca.jrvs.apps.trading.web.resources.AccountWebResponse;
 import ca.jrvs.apps.trading.web.resources.TraderProfileWebResponse;
-import ca.jrvs.apps.trading.web.resources.TraderWebRequest;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;

@@ -1,6 +1,5 @@
 package ca.jrvs.apps.trading.service.impl;
 
-import ca.jrvs.apps.generated.trading.ApiClient;
 import ca.jrvs.apps.generated.trading.api.TraderControllerApi;
 import ca.jrvs.apps.generated.trading.model.TraderProfileResponse;
 import ca.jrvs.apps.generated.trading.model.TraderRequest;
@@ -11,7 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("RegisterServiceImpl")
 @Slf4j
 public class RegisterServiceImpl implements RegisterService {
 

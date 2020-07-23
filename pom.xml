@@ -133,17 +133,68 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <inputSpec>${project.basedir}/src/main/resources/swaggers/trading-application-shared.json</inputSpec>
+                            <inputSpec>${project.basedir}/src/main/resources/swaggers/trading-application-shared.json
+                            </inputSpec>
                             <language>java</language>
                             <library>resttemplate</library>
                             <generateApiTests>false</generateApiTests>
                             <modelPackage>ca.jrvs.apps.generated.trading.model</modelPackage>
                             <apiPackage>ca.jrvs.apps.generated.trading.api</apiPackage>
+<!--                                                        <configOptions>-->
+<!--                                                            <sourceFolder>src/gen/java/main</sourceFolder>-->
+<!--                                                        </configOptions>-->
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>Trading_Application_Audit_Shared</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>
+                                ${project.basedir}/src/main/resources/swaggers/trading-application-audit-shared.json
+                            </inputSpec>
+                            <language>java</language>
+                            <library>resttemplate</library>
+                            <generateApiTests>false</generateApiTests>
+                            <modelPackage>ca.jrvs.apps.generated.trading.model</modelPackage>
+                            <apiPackage>ca.jrvs.apps.generated.trading.api</apiPackage>
+<!--                                                        <configOptions>-->
+<!--                                                            <sourceFolder>src/gen/java/main</sourceFolder>-->
+<!--                                                        </configOptions>-->
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
         </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.eclipes.m2e</groupId>
+                    <artifactId>lifecycle-mapping</artifactId>
+                    <version>1.0.0</version>
+                    <configuration>
+                        <lifecycleMappingMetadata>
+                            <pluginExecutions>
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>io.swagger</groupId>
+                                        <artifactId>swagger-codegen-maven-plugin</artifactId>
+                                        <versionRange>[2.4.5,)</versionRange>
+                                        <goals>
+                                            <goal>generate</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <execute/>
+                                    </action>
+                                </pluginExecution>
+                            </pluginExecutions>
+                        </lifecycleMappingMetadata>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
 
 </project>
